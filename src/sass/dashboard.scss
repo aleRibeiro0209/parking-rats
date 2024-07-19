@@ -18,22 +18,21 @@ $draco: "Draco", sans-serif;
     font-family: $urbanist;
     font-size: 2rem;
     overflow-x: hidden;
+    background: url('../../public/assets/img/bg-rat-car.png') center no-repeat fixed;
+    background-size: cover;
+    user-select: none;
+}
 
-    .bg-img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: -2;
-    }
-
-    .bg-rect {
-        background-color: #fff;
-        opacity: 0.4;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: -1;
-    }
+.container-body::before {
+    content: "";
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.4;
 }
 
 .logo {
@@ -41,6 +40,12 @@ $draco: "Draco", sans-serif;
     font-size: 2rem;
     font-family: $draco;
     text-align: center;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        color: $accessible-text-light;
+    }
 }
 
 .dash-header {
@@ -107,7 +112,7 @@ $draco: "Draco", sans-serif;
         flex: 2 0;
         font-size: 2.5rem;
         font-weight: 800;
-        color: #000;
+        color: #fff;
     }
 
     .register-costumer {
@@ -205,6 +210,7 @@ $draco: "Draco", sans-serif;
         }
 
         .registers-thead {
+            width: 100%;
             background-color: $components-light;
             border-top-left-radius: 40px;
             border-top-right-radius: 40px;
@@ -356,6 +362,15 @@ $draco: "Draco", sans-serif;
 }
 
 // Responsive layout
+@media (width < 940px) {
+    .dash-header {
+        .user-name-image {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
 @media (width < 800px) {
     .bg-img {
         display: none;
@@ -371,7 +386,6 @@ $draco: "Draco", sans-serif;
 
         .user-name-image {
             order: 2;
-            justify-content: center;
         }
 
         .logo {
@@ -400,6 +414,25 @@ $draco: "Draco", sans-serif;
 
         .search-filter {
             flex: 1 0 100%;
+        }
+    }
+    
+    .registers {
+        padding: 0;
+        margin: 2.5rem;
+
+        .registers-table {
+            width: 100%;
+            overflow: hidden;
+            overflow-x: auto;
+
+            .registers-thead {
+                width: 300%;
+            }
+
+            tbody {
+                width: 300%;
+            }
         }
     }
 

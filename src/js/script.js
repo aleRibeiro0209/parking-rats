@@ -14,7 +14,8 @@ function cadastrarCostumer() {
         dataAtual = dataAtual.replaceAll("/", "-");
         dataAtual += " " + data.toLocaleTimeString();
         inputPlaca.value = inputPlaca.value.toUpperCase();
-        console.log(inputPlaca.value)
+        inputNome.value = inputNome.value.toLowerCase();
+        inputNome.value = inputNome.value.replace(/\b\w/g, char => char.toUpperCase());
 
         const xmlHttp = new XMLHttpRequest;
         const url = 'http://localapi.allparking.com.br/registros';
@@ -108,11 +109,46 @@ function registrarSaida(obj) {
             }
         }
         xmlHttp.send();
+        obj = null;
         return;
     });
 
     noButton.addEventListener('click', () => {
         obj.checked = false;
+        obj = null;
         return;
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    atualizarPlanilha();
+});
+
+function filterTable(inputObj) {
+    var filter, table, tr, td, i, j, txtValue;
+    filter = inputObj.value.toLowerCase();
+    table = document.getElementById('tableBody');
+    tr = table.getElementsByTagName('tr');
+    for (i = 0; i < tr.length; i++) {
+        tr[i].style.display = 'none'; // Esconde todas as linhas
+        td = tr[i].getElementsByTagName('td');
+        for (j = 0; j < td.length; j++) {
+            if (td[j]) {
+                txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    tr[i].style.display = ''; // Mostra a linha se a busca corresponder
+                    break; // Para de verificar outras células na linha
+                }
+            }
+        }
+    }
+
+    inputObj.addEventListener('blur', () => {
+        if (filter === "todos") {
+            for (i = 0; i < tr.length; i++) {
+                tr[i].style.display = '';
+            }
+        }
+        inputObj.value = null;
     });
 }

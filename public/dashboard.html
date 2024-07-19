@@ -9,14 +9,11 @@
     <link rel="stylesheet" href="../src/css/font.css">
 </head>
 <body class="container-body">
-    <!-- Fundos -->
-    <!-- <img class="bg-img" src="./assets/img/bg-rat-car.png" alt=""> -->
-    <span class="bg-rect"></span>
 
     <!-- Cabeçalho -->
     <header class="dash-header">
         <h1>Controle de vagas</h1>
-        <h1 class="logo">Parking Rats</h1>
+        <h1 class="logo"><a href="#">Parking Rats</a></h1>
         <div class="user-name-image">
             <span><i class="fa-regular fa-user"></i></span>
             <p>Username</p>
@@ -32,18 +29,18 @@
     <!-- Section search-filter -->
     <section class="search-filters">
         <div class="input-group-filter busca">
-            <label for="">O que você está procurando?</label>
-            <input type="search" name="" id="" placeholder="Categoria, nome, placa,  status, etc...">
+            <label for="busca">O que você está procurando?</label>
+            <input type="search" name="" id="busca" placeholder="Nome, placa, status, etc..." onkeyup="filterTable(this)">
         </div>
         <div class="input-group-filter">
-            <label for="">Categoria</label>
-            <input type="text" name="" id="" placeholder="Todos">
+            <label for="placa">Placa</label>
+            <input type="text" name="" id="placa" placeholder="Todos" onkeyup="filterTable(this)">
         </div>
         <div class="input-group-filter">
-            <label for="">Status</label>
-            <input type="text" name="" id="" placeholder="Todos">
+            <label for="status">Status</label>
+            <input type="text" name="" id="status" placeholder="Todos" onkeyup="filterTable(this)">
         </div>
-        <button class="search-filter" type="button" onclick="atualizarPlanilha()">Buscar</button>
+        <button class="search-filter" type="button" onclick="">Cadastrar novo preço</button>
     </section>
 
     <!-- Section principal (table) -->
@@ -78,14 +75,14 @@
                 </div>
                 <div class="input-group">
                     <label for="placa">Placa:</label>
-                    <input type="text" name="" id="placa">
+                    <input type="text" name="" id="placa" required>
                 </div>
-                <button type="button" onclick="cadastrarCostumer()" class="btn-register" required>Cadastrar</button>
+                <button type="button" onclick="cadastrarCostumer()" class="btn-register">Cadastrar</button>
             </div>
         </form>
     </div>
     <div class="overlay" id="overlay-exit">
-        <h2>Deseja registra a saída deste cliente?</h2>
+        <h2>Deseja registrar a saída deste cliente?</h2>
         <div class="overlay-group">
             <button type="button" class="btn-yes-no" id="noButton" onclick="overlay('overlay-exit')">Não</button>
             <button type="button" class="btn-yes-no" id="yesButton" onclick="overlay('overlay-exit')">Sim</button>
