@@ -1,0 +1,409 @@
+$bg-light: #E0F6FA;
+$accessible-text-light: #123D43;
+$components-light: #BAE7EF;
+$solid-light: #54BBCA;
+$urbanist: "Urbanist", sans-serif;
+$draco: "Draco", sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-body {
+    position: relative;
+    height: 100vh;
+    color: $accessible-text-light;
+    font-family: $urbanist;
+    font-size: 2rem;
+    overflow-x: hidden;
+
+    .bg-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -2;
+    }
+
+    .bg-rect {
+        background-color: #fff;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.logo {
+    max-width: 367px;
+    font-size: 2rem;
+    font-family: $draco;
+    text-align: center;
+}
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1.25rem 5rem;
+    background-color: $bg-light;
+    z-index: 1;
+
+    h1 {
+        flex: 1 0;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    .user-name-image {
+        flex: 1 0;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 1.5rem;
+
+        span {
+            position: relative;
+            display: flex;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #D9D9D9;
+            
+            .fa-regular.fa-user {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                text-align: center;
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            font-weight: 600;
+            font-size: 1.625rem;
+        }
+    }
+}
+
+.create-costumer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2.5rem 5rem;
+    gap: 2rem;
+    
+    h1 {
+        flex: 2 0;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #000;
+    }
+
+    .register-costumer {
+        cursor: pointer;
+        flex: 1 1;
+        max-width: 350px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+        background-color: $accessible-text-light;
+        color: $bg-light;
+        border-radius: 16px;
+        border: none;
+    }
+}
+
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: end;
+    margin: 2.5rem 5rem;
+    padding: 2.5rem;
+    background-color: $bg-light;
+    border-radius: 40px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+
+    .input-group-filter {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 196px;
+        gap: 1rem;
+
+        label {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        input {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(18, 61, 67, 0.4);
+            background-color: rgba(84, 186, 202, 0.25);
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 1.5rem;
+            font-weight: 400;
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    .busca {
+        flex: 2 0 400px;
+    }
+
+    .search-filter {
+        cursor: pointer;
+        flex: 1 0 207px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+        background-color: $accessible-text-light;
+        color: $bg-light;
+        border-radius: 16px;
+        border: none;
+    }
+}
+
+.registers {
+    padding: 2.5rem 5rem;
+
+    .registers-table {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: $bg-light;
+        border-radius: 40px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        
+        tr {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            gap: 1rem;
+            font-weight: 400;
+            font-size: clamp(.5rem, 10vw, 1.5rem);
+
+            td {
+                flex: 1;
+            }
+        }
+
+        .registers-thead {
+            background-color: $components-light;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+
+            tr {
+                font-weight: 600;
+            }
+        }
+
+        tbody {
+            height: 500px;
+            overflow: hidden;
+            overflow-y: auto;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5rem;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.76);
+    transform: scale(1.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    color: #fff;
+
+    form {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: 1px solid #fff;
+        border-radius: 24px;
+        color: #fff;
+        display: flex;
+        padding: 4rem;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        max-width: 681px;
+        gap: 1.5rem;
+
+        i {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .column-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: .625rem;
+            width: 100%;
+
+            label {
+                width: 100%;
+                text-align: left;
+                font-size: 2rem;
+                font-weight: 400;
+                letter-spacing: 5px;
+            }
+
+            input {
+                width: 100%;
+                background-color: rgba(224, 246, 250, 0.80);
+                color: rgba(18, 61, 67, 0.60);
+                font-size: 1.5rem;
+                font-weight: 400;
+                border-radius: 16px;
+                padding: 1rem 1.5rem;
+                border: none;
+            }
+
+            input#placa {
+                text-transform: uppercase;
+            }
+        }
+
+        .btn-register {
+            cursor: pointer;
+            border: none;
+            padding: 1.5rem 1rem;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 400;
+            font-family: $urbanist;
+            border-radius: 16px;
+            background-color: $accessible-text-light;
+        }
+    }
+
+    .overlay-group {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 5rem;
+    }
+
+    .btn-yes-no {
+        cursor: pointer;
+        border: none;
+        padding: 1.5rem 1rem;
+        flex: 1 1 200px;
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 400;
+        font-family: $urbanist;
+        border-radius: 16px;
+        background-color: #28a745;
+    }
+
+    .btn-yes-no:first-child {
+        background-color: #dc3545;
+    }
+}
+
+.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+// Responsive layout
+@media (width < 800px) {
+    .bg-img {
+        display: none;
+    }
+
+    .dash-header {
+        justify-content: center;
+
+        h1 {
+            text-align: center;
+            display: none;
+        }
+
+        .user-name-image {
+            order: 2;
+            justify-content: center;
+        }
+
+        .logo {
+            order: 1;
+            display: block;
+        }
+    }
+
+    .create-costumer {
+        text-align: center;
+
+        .register-costumer {
+            max-width: none;
+        }
+    }
+
+    .search-filters {
+        margin: 0 2.5rem;
+        .input-group-filter {
+            flex: 1 0 100%;
+        }
+
+        .busca {
+            flex: 1 0 100%;
+        }
+
+        .search-filter {
+            flex: 1 0 100%;
+        }
+    }
+
+    .overlay {
+        padding: 1rem;
+    }
+}

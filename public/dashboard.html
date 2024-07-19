@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/css/dashboard.css">
+    <link rel="stylesheet" href="../src/css/font.css">
+</head>
+<body class="container-body">
+    <!-- Fundos -->
+    <!-- <img class="bg-img" src="./assets/img/bg-rat-car.png" alt=""> -->
+    <span class="bg-rect"></span>
+
+    <!-- Cabeçalho -->
+    <header class="dash-header">
+        <h1>Controle de vagas</h1>
+        <h1 class="logo">Parking Rats</h1>
+        <div class="user-name-image">
+            <span><i class="fa-regular fa-user"></i></span>
+            <p>Username</p>
+        </div>
+    </header>
+
+    <!-- Section create-costumer -->
+    <section class="create-costumer">
+        <h1>Clientes</h1>
+        <button class="register-costumer" onclick="overlay('overlay-register')">Cadastrar Cliente</button>
+    </section>
+
+    <!-- Section search-filter -->
+    <section class="search-filters">
+        <div class="input-group-filter busca">
+            <label for="">O que você está procurando?</label>
+            <input type="search" name="" id="" placeholder="Categoria, nome, placa,  status, etc...">
+        </div>
+        <div class="input-group-filter">
+            <label for="">Categoria</label>
+            <input type="text" name="" id="" placeholder="Todos">
+        </div>
+        <div class="input-group-filter">
+            <label for="">Status</label>
+            <input type="text" name="" id="" placeholder="Todos">
+        </div>
+        <button class="search-filter" type="button" onclick="atualizarPlanilha()">Buscar</button>
+    </section>
+
+    <!-- Section principal (table) -->
+    <main class="registers">
+        <table class="registers-table">
+            <thead class="registers-thead">
+                <tr>
+                    <td>#</td>
+                    <td>Cliente</td>
+                    <td>Placa</td>
+                    <td>Data e Hora de Entrada</td>
+                    <td>Data e Hora de Saída</td>
+                    <td>Preço ID</td>
+                    <td>Status</td>
+                    <td>Valor Total R$</td>
+                    <td><input type="checkbox" checked></td>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </main>
+
+    <div class="overlay" id="overlay-register">
+        <form method="post">
+            <i class="fa-solid fa-x" onclick="overlay('overlay-register')"></i>
+            <p>Cadastrar cliente</p>
+            <div class="column-group">
+                <div class="input-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="" id="nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="placa">Placa:</label>
+                    <input type="text" name="" id="placa">
+                </div>
+                <button type="button" onclick="cadastrarCostumer()" class="btn-register" required>Cadastrar</button>
+            </div>
+        </form>
+    </div>
+    <div class="overlay" id="overlay-exit">
+        <h2>Deseja registra a saída deste cliente?</h2>
+        <div class="overlay-group">
+            <button type="button" class="btn-yes-no" id="noButton" onclick="overlay('overlay-exit')">Não</button>
+            <button type="button" class="btn-yes-no" id="yesButton" onclick="overlay('overlay-exit')">Sim</button>
+        </div>
+    </div>
+    <script src="../src/js/script.js"></script>
+</body>
+</html>

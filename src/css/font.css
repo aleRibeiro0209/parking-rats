@@ -1,0 +1,8 @@
+/* Imporatação font urbanist */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: Draco;
+    font-weight: regular;
+    src: url("../../public/assets/fonts/Draco.otf") format("opentype");
+}
